@@ -1,13 +1,15 @@
 import { useState } from 'react'
-import Title from './Title'
-import './App.css'
+import Card from '../Components/Card/Card'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <Title />
+      <h1 className="text-3xl font-bold underline">
+        Hello world!
+      </h1>
+      <Card />
     </>
   )
 }
