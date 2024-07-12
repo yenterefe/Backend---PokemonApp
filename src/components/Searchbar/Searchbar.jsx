@@ -24,6 +24,7 @@ export const SearchBar = (props) => {
             <div className="input-wrapper">
                 <input type="text" value={input} placeholder="Find your Pokemon!" onChange={(e) => setInput(e.target.value.toLowerCase())} />
             </div>
+            <br />
             <button onClick={getPokemon} className="btn btn-primary">
                 Pokemon
             </button>
