@@ -1,7 +1,7 @@
-export default function Title() {
+export default function Title(props) {
     return (
         <>
-            <h1>name + hp</h1>
+            <h1>{props.name} HP : {props.hp}</h1>
         </>
     )
 }

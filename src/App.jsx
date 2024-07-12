@@ -4,12 +4,17 @@ import Title from "./Title";
 import { SearchBar } from "./components/Searchbar/Searchbar";
 import Button from "./Button";
 function App() {
+  const [pokemon, setPokemon] = useState()
+
   return (
     <>
       <Title />
-      <SearchBar />
-      <Button />
-      <Card />
+      <SearchBar
+        setPokemon={setPokemon}
+      />
+
+      {pokemon && <Card pokemon={pokemon} />}
+
     </>
   );
 }

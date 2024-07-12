@@ -5,15 +5,15 @@ import axios from 'axios';
 
 
 
-export const SearchBar = () => {
+export const SearchBar = (props) => {
     const [input, setInput] = useState();
-
     async function getPokemon() {
         try {
             const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${input}`);
-            alert(JSON.stringify(response.data));
+
 
             console.log(response.data);
+            props.setPokemon(response.data)
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -22,11 +22,12 @@ export const SearchBar = () => {
     return (
         <>
             <div className="input-wrapper">
-                <input type="text" value={input} placeholder="Find your Pokemon!" onChange={(e) => setInput(e.target.value)} />
+                <input type="text" value={input} placeholder="Find your Pokemon!" onChange={(e) => setInput(e.target.value.toLowerCase())} />
             </div>
-            <button onClick={getPokemon} class="btn btn-primary">
+            <button onClick={getPokemon} className="btn btn-primary">
                 Pokemon
             </button>
+            {/* <img src={img} alt="pikachu img" /> */}
         </>
 
     );
