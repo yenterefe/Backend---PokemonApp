@@ -11,20 +11,28 @@ import Title from "./Title";
 import Image from "./Image";
 import Info from "./Info";
 
-export default function Card() {
+import { SearchBar } from "../Searchbar/Searchbar";
+
+export default function Card(props) {
+  console.log(props.pokemon.name)
   return (
     <>
-      <button className="btn btn-secondary">Secondary</button>
+
       <div className="card card-compact bg-base-100 w-96 shadow-xl">
-        <Title />
+        <Title
+          name={props.pokemon.name}
+
+        />
         <figure>
-          <Image />
+          <Image
+            img={props.pokemon.sprites.front_default}
+          />
         </figure>
         <div className="card-body">
-          <Info />
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
+          <Info
+            abilities={props.abilities}
+          />
+
         </div>
       </div>
     </>
