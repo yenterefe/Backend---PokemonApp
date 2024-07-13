@@ -1,11 +1,8 @@
-export default function Info(props) {
+export default function Info(props, key) {
     return (
         <>
-            <p>
+            <li key={key} >{props.name}</li>
 
-                whole bunch of info on abilities
-                props
-            </p>
         </>
     )
 }
