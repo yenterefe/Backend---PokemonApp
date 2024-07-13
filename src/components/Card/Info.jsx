@@ -1,7 +1,8 @@
-export default function Info(props) {
-  return (
-    <>
-      <p className="text-xl text-center">Abilities</p>
-    </>
-  );
+export default function Info(props, key) {
+    return (
+        <>
+            <li className="text-xl text-center" key={key}>{props.name}</li>
+        </>
+    )
 }
+
