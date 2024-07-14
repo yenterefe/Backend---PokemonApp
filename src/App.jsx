@@ -4,7 +4,8 @@ import Title from "./Title";
 import { SearchBar } from "./components/Searchbar/Searchbar";
 import Button from "./Button";
 import "./App.css";
-import img1 from "./assets/img1.png";
+import img4 from "./assets/img4.jpg";
+
 function App() {
   const [pokemon, setPokemon] = useState();
 
@@ -17,7 +18,12 @@ function App() {
 
         {pokemon && <Card pokemon={pokemon} />}
       </div>
-      <img src={img1} alt="pokemon" className="w-full object-cover " />
+      <div className="bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+      <img
+        src={img4}
+        alt="pokemon"
+        className="w-3/5 object-contain m-auto  mt-20 mb-32 rounded-full "
+      />
     </>
   );
 }
