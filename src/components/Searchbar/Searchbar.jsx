@@ -2,19 +2,40 @@ import React from "react";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ErrorWarning from "../ErrorWarning";
 
 export const SearchBar = (props) => {
   const [input, setInput] = useState();
+  const [isError, setIsError] = useState(false);
+  const [isMissing, setIsMissing] = useState(false);
+  const [errorContent, setErrorContent] = useState("");
   async function getPokemon() {
     try {
+      if (!input) {
+        // input is ""
+        setIsError(true);
+        setErrorContent("Please enter a Pokemon");
+        setIsMissing(true);
+        return;
+      }
+
       const response = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${input}`
       );
 
       console.log(response.data);
       props.setPokemon(response.data);
+
+      setIsError(false);
     } catch (error) {
       console.error("Error fetching data:", error);
+
+      // show the error warning
+
+      setIsError(true);
+      setErrorContent("Error: Unknown Pokemon");
+      setIsMissing(false);
+      console.log(input);
     }
   }
 
@@ -30,7 +51,8 @@ export const SearchBar = (props) => {
 
   return (
     <>
-      <div className=" p-7 outline rounded-md bg-yellow-400  mt-10 text-lg ">
+      {isError && <ErrorWarning isMissing={isMissing} content={errorContent} />}
+      <div className=" p-7 outline rounded-md bg-yellow-400 mt-4 text-lg ">
         <input
           type="text"
           value={input}
