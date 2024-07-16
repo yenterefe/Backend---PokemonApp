@@ -28,8 +28,8 @@ export default function Card(props) {
         <figure>
           <Image img={props.pokemon.sprites.front_default} />
         </figure>
-        <div className="card-body">
-          <p>Abilities:</p>
+        <div className="card-body ">
+          <p className="text-xl">Abilities:</p>
           <ul>
             {props.pokemon.abilities.map((ability, index) => (
               <Info key={index} name={ability.ability.name} />
