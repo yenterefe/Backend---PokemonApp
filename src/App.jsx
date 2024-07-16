@@ -28,11 +28,7 @@ function App() {
         {pokemon && <Card pokemon={pokemon} />}
       </div>
       <div className="bg-gradient-to-r from-cyan-500 to-blue-500"></div>
-      <img
-        src={img4}
-        alt="pokemon"
-        className="w-3/5 object-contain m-auto  mt-20 mb-32 rounded-full "
-      />
+
       <Footer />
     </>
   );
